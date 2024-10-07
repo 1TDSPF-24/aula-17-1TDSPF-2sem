@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .custom-table{
+        @apply table-auto border-collapse border border-gray-500 w-full; 
+    }
+    
+    .big-header{
+      @apply py-4 px-6 text-center bg-slate-600 text-white text-2xl flex;
+    }
+
+    .menu{
+        @apply w-full;
+    }
+
+    .menu ul{
+    @apply flex justify-around ;
+    }
+
+    .menu a{
+     @apply hover:underline;
+    }
+
+    .custom-table th, .custom-table td{
+        @apply border border-gray-500 px-4 py-2;
+    }
+
+}
