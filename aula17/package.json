@@ -11,12 +11,14 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
+    "appwrite": "^16.0.2",
     "next": "14.2.12",
+    "npm": "^10.9.0",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.16.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
