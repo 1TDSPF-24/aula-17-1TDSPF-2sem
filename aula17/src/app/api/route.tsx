@@ -1,18 +1,17 @@
-import { TipoParametro } from "@/types";
-import { promises as fs } from "fs";
-import { NextResponse } from "next/server";
+import client from "@/lib/appwrite_client";
+import { TipoProduto } from "@/types";
+import { Databases, ID } from "appwrite";
 
-export async function GET(request:Request,{params}:{params:{id:string}}) {
+const database = new Databases(client)
+
+export async function pegaProduto(produto: TipoProduto) {
     try {
-        // Leitura do arquivo JSON na pasta src/data/base.json
-        const file = await fs.readFile(process.cwd() + '/src/data/base.json', 'utf-8');
-        
-        // Parsing do JSON e retorno da resposta
-        const data = JSON.parse(file);
-        return NextResponse.json(data);
+        const response = await database.createDocument(process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID as string,
+            process.env.EXT_PUBLIC_APPWRITE_COLLECTION_ID as string,
+            ID.unique(), produto
+        )
     } catch (error) {
-        // Log de erro no console e retorno de uma resposta de erro para o cliente
-        console.error("Erro ao ler o arquivo JSON:", error);
-        return NextResponse.json({ message: "Erro ao ler o arquivo produtos" }, { status: 500 });
+        console.error("Erro criando produto.", error)
+        throw new Error("Falha ao criar produto.")
     }
 }
