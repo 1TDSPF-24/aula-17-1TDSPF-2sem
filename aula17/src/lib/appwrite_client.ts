@@ -3,6 +3,7 @@ const client = new Client();
 
 client
     .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT as string)
-    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECTID as string);
-
+    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECTID as string)
+    .setProject(process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID as string)
+    .setProject(process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID as string);
 export default client;
