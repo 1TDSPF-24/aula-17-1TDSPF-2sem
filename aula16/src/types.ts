@@ -1,3 +1,4 @@
-export type TipoParametro = {
-    id:number;
+export type TipoProduto = {
+    nome:string;
+    preco:number;
   }
